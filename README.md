@@ -46,7 +46,7 @@ a message to Slack.
     ### Config Variables - .env
     Name | Description
     ---|---
-    `APIAI_TOKEN` | The API.AI [access token](https://docs.api.ai/docs/authentication)
+    `APIAI_TOKEN` | The API.AI [client access token](https://docs.api.ai/docs/authentication)
     `SLACK_BOT_TOKEN` | The Slack Bot OAuth token. _Slack Developers Console_ > _OAuth & Permissions_ > _Bot User OAuth Access Token_
     `SLACK_VERIFICATION_TOKEN` | The Slack verification token. _Slack Developer's Console_ > _Basic Information_ > _Verification Token_
 
