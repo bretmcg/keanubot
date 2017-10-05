@@ -41,8 +41,7 @@ a message to Slack.
 
 1. Clone this repository to your local workstation:
 ```$ git clone https://github.com/bretmcg/keanubot ```
-1. Using your Slack and API.AI credentials, copy `functions/.env.sample` to
-`functions/.env` and add the correct values.
+1. Using your Slack and API.AI credentials, copy `dot.env.sample` to `.env` using `$ cp functions/dot.env.sample functions/.env` and add the API key correct values.
 
     ### Config Variables - .env
     Name | Description
