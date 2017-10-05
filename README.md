@@ -50,6 +50,8 @@ a message to Slack.
     `SLACK_BOT_TOKEN` | The Slack Bot OAuth token. _Slack Developers Console_ > _OAuth & Permissions_ > _Bot User OAuth Access Token_
     `SLACK_VERIFICATION_TOKEN` | The Slack verification token. _Slack Developer's Console_ > _Basic Information_ > _Verification Token_
 
+1. Install the [gcloud command line tool](https://cloud.google.com/sdk/downloads#interactive)
+to manage your Google Cloud Platform project.
 1. Deploy the event notification function `keanubot` to Cloud Functions:
 ```
 cd functions/
@@ -57,13 +59,13 @@ cd functions/
 ```
 gcloud beta functions deploy keanubot --stage-bucket <YOUR_CLOUD_STORAGE_BUCKET> --trigger-http
 ```
-5. Add the ```keanubot``` function URL to the Slack event subscription page. It should be in the format `https://REGION-PROJECT.cloudfunctions.net/keanubot`.
+6. Add the ```keanubot``` function URL to the Slack event subscription page. It should be in the format `https://REGION-PROJECT.cloudfunctions.net/keanubot`.
 ![](./docs/img/slack_add_event_subscription_url.png)
 1. Deploy the API.AI fulfillment webhook.
 ```
 gcloud beta functions deploy apiaifulfillment --stage-bucket <YOUR_CLOUD_STORAGE_BUCKET> --trigger-http
 ```
-7. Add the ```apiaifulfillment``` function URL to the API.API *Fulfillment* page, and make sure Webhook is *Enabled.*
+8. Add the ```apiaifulfillment``` function URL to the API.API *Fulfillment* page, and make sure Webhook is *Enabled.*
 ![](./docs/img/apiai_fulfillment.png)
 
 1. Invite your bot into a channel and watch it respond to you!

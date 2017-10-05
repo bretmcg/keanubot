@@ -8,5 +8,5 @@ Create an [API.AI agent](https://console.api.ai/) using Sign in with Google. Thi
 ## 3. Import intents
 ![Import intents](./img/apiai_2_import.png)
 
-## 4. Select .zip from GitHub repo
+## 4. Select KeanuAgent_APIAI.zip from GitHub repo
 ![Select .zip](./img/apiai_3_file.png)
