@@ -71,25 +71,16 @@ gcloud beta functions deploy apiaifulfillment --stage-bucket <YOUR_CLOUD_STORAGE
 ![](https://cloud.githubusercontent.com/assets/35968/23574948/14166368-003a-11e7-94ed-1cf585dbb2e8.png)
 
 ## Local development and testing
-1. Install the local [Google Cloud Functions emulator](https://github.com/GoogleCloudPlatform/cloud-functions-emulator)
-```
-npm install -g @google-cloud/functions-emulator
-```
-2. From the ```functions``` directory, configure your local emulator and then deploy your function(s).
-```
-functions config set projectId <GOOGLE_CLOUD_PROJECT>
-functions start
-functions deploy keanubot --trigger-http
-```
-3. Simulate a message event, inserting the URL from the local emulator, and the Slack verification token:
-```
-$ VERIFICATION_TOKEN=<TOKEN>
-$ LOCAL_KEANUBOT=<URL_FROM_EMULATOR>
-```
-```
-$ curl -H "Content-Type: application/json" -X POST -d '{ "token": "$VERIFICATION_TOKEN", "team_id": "T7BAS0M3N", "api_app_id": "A7EPEQ59V", "event": { "type": "message", "user": "U7APBSQKB", "text": "i am sorry", "ts": "1507177745.000146", "channel": "D7D5UTU65", "event_ts": "1507177745.000146" }, "type": "event_callback", "authed_users": [ "U7EHQDCF8" ], "event_id": "Ev7EPQ73K9", "event_time": 1507177745 }' $LOCAL_KEANUBOT
-```
-4. Check the emulators logs by running the command
-```
-$ functions logs read
-```
+1. ```$ cd functions/```
+1. ```$ npm install```
+1. Add security token values to ```.env``` as before.
+1. ```$ node server.js```
+1. In a new terminal window:
+    1. [Download ngrok](https://ngrok.com/download) and unzip into the
+    ```functions/``` directory.
+    1. From ```functions/``` run ```$ ngrok http 3005```
+2. Slack event subscription: add the local ```keanubot``` URL to the Slack app page. It should be in the format `https://2f75d6e9.ngrok.io/keanubot`.
+![](./docs/img/local_slack_event_url.png)
+2. API.AI fulfillment URL: Add the local ```apiaifulfillment``` URL to the API.API *Fulfillment* page, and make sure Webhook is *Enabled.* The URL should be in the format `https://2f75d6e9.ngrok.io/apiaifulfillment`
+![](./docs/img/local_apiai_fulfillment.png)
+
